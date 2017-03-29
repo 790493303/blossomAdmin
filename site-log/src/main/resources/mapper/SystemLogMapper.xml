@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.log.mapper.SystemLogMapper">
+
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+    <resultMap id="systemMap" type="com.blossom.site.log.entity.SystemLogDo">
+        <result column="id" property="id"/>
+        <result column="className" property="className"/>
+        <result column="methodName" property="methodName"/>
+        <result column="createTime" property="createTime"/>
+        <result column="loglevel" property="loglevel"/>
+        <result column="message" property="message"/>
+    </resultMap>
+    <!--获取日志信息-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="systemMap">
+        SELECT id,className,methodName,createTime,loglevel,message
+        FROM  tb_system_log
+    </select>
+
+</mapper>

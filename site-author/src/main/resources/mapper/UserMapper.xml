@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.author.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.blossom.site.author.entity.UserDo">
+        <result column="userId" property="userId"/>
+        <result column="organizationId" property="organizationId"/>
+        <result column="loginAccount" property="loginAccount"/>
+        <result column="loginPassword" property="loginPassword"/>
+        <result column="userName" property="userName"/>
+        <result column="telephone" property="telephone"/>
+        <result column="email" property="email"/>
+        <result column="createTime" property="createTime"/>
+        <result column="loginTime" property="loginTime"/>
+        <result column="lastLoginTime" property="lastLoginTime"/>
+        <result column="loginCount" property="loginCount"/>
+    </resultMap>
+
+    <!--添加用户-->
+    <insert id="save" parameterType="com.blossom.site.author.entity.UserDo">
+        INSERT INTO
+            tb_user (organizationId,loginAccount,loginPassword,userName,telephone,email,createTime)
+        VALUES
+            (#{organizationId},#{loginAccount},#{loginPassword},#{userName},#{telephone},#{email},#{createTime})
+    </insert>
+
+    <!--获取一条用户信息-->
+    <select id="getEntity" parameterType="java.util.Map" resultType="com.blossom.site.author.entity.UserDo">
+        SELECT
+              userId,organizationId,loginAccount,loginPassword,userName,telephone,email,createTime,loginTime,
+              lastLoginTime,loginCount
+        FROM tb_user
+        <where>
+            <if test="loginAccount != null"> loginAccount = #{loginAccount}</if>
+            <if test="userName != null"> userName = #{userName}</if>
+            <if test=" telephone != null"> telephone = #{telephone}</if>
+            <if test=" email != null"> email = #{email}</if>
+        </where>
+
+    </select>
+
+    <!--获取用户列表信息-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="userMap">
+        SELECT
+              userId,organizationId,loginAccount,loginPassword,userName,telephone,email,createTime,loginTime,
+              lastLoginTime,loginCount
+        FROM tb_user
+
+    </select>
+
+    <!--修改用信息-->
+    <update id="updateEntity" parameterType="java.util.Map">
+        UPDATE tb_user
+        <set>
+            <if test=" loginAccount != null"> loginAccount = #{loginAccount}</if>
+            <if test=" loginPassword != null"> loginPassword = #{loginPassword}</if>
+            <if test=" userName != null "> userName = #{userName}</if>
+            <if test=" telephone != null and telephone != '' "> telephon = #{telephon}</if>
+            <if test=" email != null "> email = #{email}</if>
+            <if test=" loginTime != null "> loginTime = #{loginTime}</if>
+            <if test=" lastLoginTime != null "> lastLoginTime = #{lastLoginTime}</if>
+            <if test=" loginCount != null "> loginCount = #{loginCount}</if>
+        </set>
+        WHERE userId = #{userId}
+    </update>
+
+    <!--删除用户信息-->
+    <delete id="removeEntity" parameterType="java.util.Map">
+        DELETE FROM tb_user WHERE  userId = #{userId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.log.mapper.VisitLogMapper">
+
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <resultMap id="visitMap" type="com.blossom.site.log.entity.VisitLogDo">
+        <result column="id" property="id" />
+        <result column="httpUrl" property="url" />
+        <result column="httpMethod" property="httpMethod" />
+        <result column="description" property="description" />
+        <result column="method" property="method" />
+        <result column="requestIp" property="requestIp" />
+        <result column="params" property="params" />
+        <result column="userName" property="createBy" />
+        <result column="createDate" property="createDate" />
+        <result column="broswer" property="broswer" />
+    </resultMap>
+
+    <!--添加数据-->
+    <insert id="save" parameterType="com.blossom.site.log.entity.VisitLogDo">
+        INSERT INTO
+            tb_visit_log (httpUrl,httpMethod,description,method,requestIp,params,userName,createDate,broswer)
+        VALUES
+            (#{url},#{httpMethod},#{description},#{method},#{requestIp},#{params},#{createBy},#{createDate},#{broswer})
+    </insert>
+
+    <!--获取数据-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="visitMap">
+        SELECT id,httpUrl,httpMethod,description,method,requestIp,params,userName,createDate,broswer
+        FROM tb_visit_log
+    </select>
+
+
+</mapper>

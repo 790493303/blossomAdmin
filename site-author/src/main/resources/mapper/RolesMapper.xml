@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.author.mapper.RolesMapper">
+
+    <resultMap id="roleMap" type="com.blossom.site.author.entity.RoleDo">
+        <result column="roleId" property="roleId"/>
+        <result column="parentRoleId" property="parentRoleId"/>
+        <result column="roleName" property="roleName"/>
+        <result column="createTime" property="createTime"/>
+        <result column="roleDescription" property="roleDescription"/>
+    </resultMap>
+
+    <!--添加角色-->
+    <insert id="save" parameterType="com.blossom.site.author.entity.RoleDo">
+        INSERT INTO
+              tb_role (parentRoleId,roleName,createTime,roleDescription)
+        VALUES
+              (#{parentRoleId},#{roleName},#{createTime},#{roleDescription})
+    </insert>
+
+    <!--获取所有的角色-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="roleMap">
+        SELECT roleId,parentRoleId,roleName,createTime,roleDescription
+        FROM tb_role
+    </select>
+
+
+    <!--删除角色-->
+    <delete id="removeEntity" parameterType="java.util.Map">
+        DELETE FROM tb_role WHERE roleId = #{roleId}
+    </delete>
+
+    <!--获取单条数据-->
+    <select id="getEntity" parameterType="java.util.Map" resultType="com.blossom.site.author.entity.RoleDo">
+        SELECT roleId,parentRoleId,roleName,createTime,roleDescription
+        FROM tb_role
+        <where>
+            <if test="roleId != null"> roleId = #{roleId}</if>
+            <if test=" roleName != null"> roleName = #{roleName}</if>
+        </where>
+    </select>
+
+
+</mapper>

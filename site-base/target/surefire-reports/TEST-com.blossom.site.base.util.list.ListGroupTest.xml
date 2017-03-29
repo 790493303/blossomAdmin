@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="com.blossom.site.base.util.list.ListGroupTest" time="0.11" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="E:\java\jdk\jdk1\jdk1.8\jre\bin"/>
+    <property name="java.vm.version" value="25.102-b14"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\web\site\blossomAdmin\blossom-admin"/>
+    <property name="java.runtime.version" value="1.8.0_102-b14"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="E:\java\jdk\jdk1\jdk1.8\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\Blossom\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="E:\java\maven\apache-maven-3.2.1\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="E:\java\jdk\jdk1\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;E:\java\jdk\jdk1\jdk1.8\bin;E:\java\jdk\jdk1\jdk1.8\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32\wbem;E:\java\git\gitService\Git\cmd;C:\Program Files\TortoiseGit\bin;E:\java\sqlite\sqlite;E:\java\gradle\gradle-2.7\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;E:\java\spring\spring-1.4.1.RELEASE\bin;E:\java\hadoop\hadoop\bin;C:\Program Files\NVIDIA Corporation\PhysX\Common;E:\java\node\;E:\java\zookeeper\zookeeper-3.4.5\bin;E:\java\zookeeper\zookeeper-3.4.5\conf;E:\java\maven\apache-maven-3.2.1\bin;E:\java\RabbitMQ\RabbitMQ\rabbitmq_server-3.6.6\sbin;E:\java\RabbitMQ\Erlang\erl8.2\bin;E:\java\apacheAnt\apache-ant-1.9.6\bin;E:\java\mongoDB\mongodb-win32-i386-2.6.6\bin;E:\java\redis\redis-2.6;C:\Users\Blossom\AppData\Roaming\npm;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\Blossom"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="Blossom"/>
+    <property name="java.class.path" value="E:\java\maven\apache-maven-3.2.1\boot\plexus-classworlds-2.5.1.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="E:\java\jdk\jdk1\jdk1.8\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_102"/>
+    <property name="java.ext.dirs" value="E:\java\jdk\jdk1\jdk1.8\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="E:\java\jdk\jdk1\jdk1.8\jre\lib\resources.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\rt.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\sunrsasign.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\jsse.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\jce.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\charsets.jar;E:\java\jdk\jdk1\jdk1.8\jre\lib\jfr.jar;E:\java\jdk\jdk1\jdk1.8\jre\classes"/>
+    <property name="sun.stderr.encoding" value="ms936"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\java\maven\apache-maven-3.2.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="ms936"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase classname="com.blossom.site.base.util.list.ListGroupTest" name="GroupTest" time="0.11"/>
+</testsuite>

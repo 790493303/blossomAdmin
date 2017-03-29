@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>blossom-admin</artifactId>
+        <groupId>com.blossom.admin</groupId>
+        <version>1.0</version>
+        <relativePath>../blossom-admin/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>site-author</artifactId>
+    <packaging>jar</packaging>
+
+    <name>site-author</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.blossom.admin</groupId>
+            <artifactId>site-base</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.blossom.admin</groupId>
+            <artifactId>site-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.blossom.admin</groupId>
+            <artifactId>site-log</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+    </dependencies>
+</project>

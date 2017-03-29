@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.author.mapper.RoleAuthorMapper">
+
+    <resultMap id="authorMap" type="com.blossom.site.author.entity.AuthorDo">
+        <result column="authorId" property="authorId" />
+        <result column="parentAuthorId" property="parentAuthorId" />
+        <result column="authorName" property="authorName" />
+        <result column="authorDescription" property="authorDescription" />
+        <result column="authorUrl" property="authorUrl" />
+    </resultMap>
+
+    <!--获取角色权限-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="authorMap">
+        SELECT authorId,parentAuthorId,authorName,authorDescription,authorUrl
+        FROM tb_role r
+              LEFT JOIN tb_role_author ra ON r.roleId = ra.roleId
+              LEFT JOIN tb_author a ON ra.authorId = a.authorId
+        WHERE r.roleId = #{roleId}
+    </select>
+
+    <!--获取角色权限-->
+    <select id="listAuthorByRoleIds" parameterType="java.util.List" resultMap="authorMap">
+        SELECT authorId,parentAuthorId,authorName,authorDescription,authorUrl
+        FROM tb_role r
+        LEFT JOIN tb_role_author ra ON r.roleId = ra.roleId
+        LEFT JOIN tb_author a ON ra.authorId = a.authorId
+        WHERE
+            r.roleId INTO (
+              <foreach collection="list" index="index" item="item" separator=",">
+                  #{item}
+              </foreach>
+          )
+    </select>
+
+    <!--添加角色权限-->
+    <insert id="saveEntity" parameterType="java.util.Map">
+        INSERT INTO
+            tb_role_author (roleId,authorId)
+        VALUES
+            (#{roleId},#{authorId})
+    </insert>
+
+    <!--删除角色权限-->
+    <delete id="removeEntity" parameterType="java.util.Map">
+        DELETE FROM tb_role_author WHERE roleAuthorId = #{roleAuthorId}
+    </delete>
+
+</mapper>

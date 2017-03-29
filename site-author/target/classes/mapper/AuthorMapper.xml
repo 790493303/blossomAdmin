@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.author.mapper.AuthorMapper">
+
+    <resultMap id="authorMap" type="com.blossom.site.author.entity.AuthorDo">
+        <result column="authorId" property="authorId" />
+        <result column="parentAuthorId" property="parentAuthorId" />
+        <result column="authorName" property="authorName" />
+        <result column="authorDescription" property="authorDescription" />
+        <result column="authorUrl" property="authorUrl" />
+    </resultMap>
+
+    <!--添加权限-->
+    <insert id="save" parameterType="com.blossom.site.author.entity.AuthorDo">
+        INSERT INTO
+            tb_author (parentAuthorId,authorName,authorDescription,authorUrl)
+        VALUES
+            (#{parentAuthorId},#{authorName},#{authorDescription},#{authorUrl})
+    </insert>
+
+    <!--获取权限-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="authorMap">
+        SELECT authorId,parentAuthorId,authorName,authorDescription,authorUrl
+        FROM tb_author
+    </select>
+
+    <!--删除权限-->
+    <delete id="removeEntity" parameterType="java.util.Map">
+        DELETE FROM tb_author WHERE authorId = #{authorId}
+    </delete>
+
+    <!--获取单条数据-->
+    <select id="getEntity" parameterType="java.util.Map" resultType="com.blossom.site.author.entity.AuthorDo">
+        SELECT authorId,parentAuthorId,authorName,authorDescription,authorUrl
+        FROM tb_author
+        WHERE authorId = #{authorId}
+    </select>
+
+</mapper>
