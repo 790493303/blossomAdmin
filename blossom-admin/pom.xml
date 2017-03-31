@@ -11,6 +11,7 @@
     <module>../site-log</module>
     <module>../site-web</module>
     <module>../site-author</module>
+      <module>../site-manager</module>
   </modules>
   <packaging>pom</packaging>
 

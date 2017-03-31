@@ -41,9 +41,7 @@ public class UserController {
     public JSONObject getUserInfo(@RequestParam(required = false, defaultValue = "") String loginAccount,
                                   @RequestParam(required = false, defaultValue = "") String userName,
                                   @RequestParam(required = false, defaultValue = "") String telephone,
-                                  @RequestParam(required = false, defaultValue = "") String email,
-                                  HttpServletRequest request,
-                                  HttpServletResponse response){
+                                  @RequestParam(required = false, defaultValue = "") String email){
         JSONObject json = new JSONObject();
         json.put("loginAccount",loginAccount);
         json.put("userName",userName);
@@ -62,8 +60,7 @@ public class UserController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public JSONObject listUserInfo(HttpServletRequest request,
-                                   HttpServletResponse response){
+    public JSONObject listUserInfo(){
 
         JSONObject json = new JSONObject();
         json = userServiceImpl.listEntityInfo(json);
@@ -120,9 +117,7 @@ public class UserController {
                                    @RequestParam() String userName,
                                    @RequestParam() String telephone,
                                    @RequestParam() String email,
-                                   @RequestParam() String organizationId,
-                                   HttpServletRequest request,
-                                   HttpServletResponse response){
+                                   @RequestParam() String organizationId){
         JSONObject json = new JSONObject();
         json.put("loginAccount",loginAccount);
         json.put("userName",userName);
@@ -149,9 +144,7 @@ public class UserController {
                                      @RequestParam(required = false, defaultValue = "") String userName,
                                      @RequestParam(required = false, defaultValue = "") String telephone,
                                      @RequestParam(required = false, defaultValue = "") String email,
-                                     @RequestParam() String userId,
-                                     HttpServletResponse response,
-                                     HttpServletRequest request){
+                                     @RequestParam() String userId){
         JSONObject json = new JSONObject();
         json.put("userId",userId);
         json.put("loginAccount",loginAccount);
@@ -173,9 +166,7 @@ public class UserController {
      */
     @RequestMapping("/remove")
     @ResponseBody
-    public JSONObject removeUserInfo(@RequestParam() String userId,
-                                     HttpServletRequest request,
-                                     HttpServletResponse response){
+    public JSONObject removeUserInfo(@RequestParam() String userId){
 
         JSONObject json = new JSONObject();
         json.put("userId",userId);

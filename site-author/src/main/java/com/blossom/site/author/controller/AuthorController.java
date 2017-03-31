@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 权限API
@@ -34,9 +31,7 @@ public class AuthorController {
     public JSONObject saveAuthor(@RequestParam() String authorName,
                                  @RequestParam() String description,
                                  @RequestParam() String url,
-                                 @RequestParam() String parentAuthorId,
-                                 HttpServletRequest request,
-                                 HttpServletResponse response){
+                                 @RequestParam() String parentAuthorId){
         JSONObject json = new JSONObject();
 
         json.put("authorName",authorName);
@@ -58,9 +53,7 @@ public class AuthorController {
     @RequestMapping("/get")
     @ResponseBody
     public JSONObject getAuthor(@RequestParam(required = false, defaultValue = "") String authorId,
-                                @RequestParam(required = false, defaultValue = "") String authorName,
-                                HttpServletRequest request,
-                                HttpServletResponse response){
+                                @RequestParam(required = false, defaultValue = "") String authorName){
 
         JSONObject json = new JSONObject();
 
@@ -80,8 +73,7 @@ public class AuthorController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public JSONObject listAuthorInfo(HttpServletRequest request,
-                                   HttpServletResponse response){
+    public JSONObject listAuthorInfo(){
 
         JSONObject json = new JSONObject();
 
@@ -99,9 +91,7 @@ public class AuthorController {
      */
     @RequestMapping("/remove")
     @ResponseBody
-    public JSONObject removeAuthor(@RequestParam() String authorId,
-                                   HttpServletResponse response,
-                                   HttpServletRequest request){
+    public JSONObject removeAuthor(@RequestParam() String authorId){
 
         JSONObject json = new JSONObject();
 

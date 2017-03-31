@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 用户角色API
@@ -32,9 +29,7 @@ public class UserRoleController {
     @RequestMapping("/save")
     @ResponseBody
     public JSONObject saveUseRole(@RequestParam() String userId,
-                                  @RequestParam() String roleId,
-                                  HttpServletRequest request,
-                                  HttpServletResponse response){
+                                  @RequestParam() String roleId){
         JSONObject json = new JSONObject();
 
         json.put("userId",userId);
@@ -53,9 +48,7 @@ public class UserRoleController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public JSONObject listUserRole(@RequestParam() String longAccount,
-                                   HttpServletRequest request,
-                                   HttpServletResponse response){
+    public JSONObject listUserRole(@RequestParam() String longAccount){
 
         JSONObject json = new JSONObject();
 
@@ -74,9 +67,7 @@ public class UserRoleController {
      */
     @RequestMapping("/remove")
     @ResponseBody
-    public JSONObject removeUserRole(@RequestParam() String userRoleId,
-                                     HttpServletRequest request,
-                                     HttpServletResponse response){
+    public JSONObject removeUserRole(@RequestParam() String userRoleId){
 
         JSONObject json = new JSONObject();
 

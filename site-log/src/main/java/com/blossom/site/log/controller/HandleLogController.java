@@ -8,9 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 操作日志API
@@ -32,8 +29,7 @@ public class HandleLogController {
     @RequestMapping("/list")
     @ResponseBody
     @VisitLog(description = "操作日志列表")
-    public JSONObject listHandleLog(HttpServletResponse response,
-                                    HttpServletRequest request){
+    public JSONObject listHandleLog(){
         JSONObject json = new JSONObject();
         json = handleLogServiceImpl.saveEntityInfo(json);
         return json;

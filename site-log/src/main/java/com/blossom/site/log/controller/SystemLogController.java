@@ -8,9 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 系统日志API
@@ -32,7 +29,7 @@ public class SystemLogController {
     @RequestMapping("/list")
     @ResponseBody
     @VisitLog(description = "系统日志列表")
-    public JSONObject listSystemLog(HttpServletRequest request, HttpServletResponse response){
+    public JSONObject listSystemLog(){
         JSONObject json = new JSONObject();
         json = systemLogServiceImpl.listEntityInfo(json);
         return json;
