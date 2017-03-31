@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 角色权限API
@@ -32,9 +29,7 @@ public class RoleAuthorController {
     @RequestMapping("/save")
     @ResponseBody
     public JSONObject saveRoleAuthor(@RequestParam() String roleId,
-                                     @RequestParam() String authorId,
-                                     HttpServletRequest request,
-                                     HttpServletResponse response){
+                                     @RequestParam() String authorId){
 
         JSONObject json = new JSONObject();
 
@@ -54,9 +49,7 @@ public class RoleAuthorController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public JSONObject listRoleAuthor(@RequestParam() String roleId,
-                                     HttpServletRequest request,
-                                     HttpServletResponse response){
+    public JSONObject listRoleAuthor(@RequestParam() String roleId){
 
         JSONObject json = new JSONObject();
 
@@ -75,9 +68,7 @@ public class RoleAuthorController {
      */
     @RequestMapping("/remove")
     @ResponseBody
-    public JSONObject removeRoleAuthor(@RequestParam() String roleAuthorId,
-                                       HttpServletRequest request,
-                                       HttpServletResponse response){
+    public JSONObject removeRoleAuthor(@RequestParam() String roleAuthorId){
 
         JSONObject json = new JSONObject();
 

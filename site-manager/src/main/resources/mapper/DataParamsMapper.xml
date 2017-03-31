@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blossom.site.manager.mapper.DataParamsMapper">
+
+    <resultMap id="dataParamsMap" type="com.blossom.site.manager.entity.DataParamsDo">
+        <result column="id" property="id"/>
+        <result column="dataType" property="dataType"/>
+        <result column="dataName" property="dataName"/>
+        <result column="dataAddress" property="dataAddress"/>
+        <result column="port" property="port"/>
+        <result column="userName" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="url" property="url"/>
+        <result column="driver" property="driver"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <!--添加数据库连接参数-->
+    <insert id="save" parameterType="com.blossom.site.manager.entity.DataParamsDo">
+        INSERT INTO
+              tb_data_params (dataType,dataName,dataAddress,port,userName,password,url,driver,status)
+        VALUES (#{dataType},#{dataName},#{dataAddress},#{port},#{userName},#{password},#{url},#{driver},#{status})
+    </insert>
+
+    <!--获取数据库连接参数-->
+    <select id="getEntity" parameterType="java.util.Map"
+            resultType="com.blossom.site.manager.entity.DataParamsDo">
+        SELECT id,dataType,dataName,dataAddress,port,userName,password,url,driver,status
+        FROM tb_data_params
+        <where>
+            <if test="id != null"> id = #{id}</if>
+            <if
+                    test="dataType != null and dataName != null and dataAddress != null and port != null and userName != null and password != null" >
+                dataType = #{dataType} AND dataName = #{dataName} AND dataAddress = #{dataAddress} AND port = #{port}
+                AND userName = #{userName} AND password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!--获取参数列表-->
+    <select id="listEntity" parameterType="java.util.Map" resultMap="dataParamsMap">
+        SELECT id,dataType,dataName,dataAddress,port,userName,password,url,driver,status
+        FROM tb_data_params
+    </select>
+
+    <!--修改参数-->
+    <update id="updateEntity" parameterType="java.util.Map">
+        UPDATE tb_data_params
+        <set>
+            <if test="status != null"> status = #{status}</if>
+        </set>
+        WHERE  id = #{id}
+    </update>
+
+    <!--删除数据-->
+    <delete id="removeEntity" parameterType="java.util.Map">
+        DELETE FROM tb_data_params WHERE  id = #{id}
+    </delete>
+
+</mapper>

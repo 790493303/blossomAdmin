@@ -8,9 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @author Blossom
  * @Description 访问日志API
@@ -32,8 +29,7 @@ public class VisitLogController {
     @RequestMapping("/list")
     @ResponseBody
     @VisitLog(description = "获取访问日志列表")
-    public JSONObject listVisitLog(HttpServletRequest request,
-                                   HttpServletResponse response){
+    public JSONObject listVisitLog(){
         JSONObject json = new JSONObject();
         json = visitLogServiceImpl.listEntityInfo(json);
         return json;
